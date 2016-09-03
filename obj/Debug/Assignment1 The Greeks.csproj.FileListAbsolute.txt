@@ -1,0 +1,6 @@
+C:\Users\mbaker\OneDrive\CompE361\Assignment 1\Assignment1 The Greeks\bin\Debug\Assignment1 The Greeks.exe.config
+C:\Users\mbaker\OneDrive\CompE361\Assignment 1\Assignment1 The Greeks\bin\Debug\Assignment1 The Greeks.exe
+C:\Users\mbaker\OneDrive\CompE361\Assignment 1\Assignment1 The Greeks\bin\Debug\Assignment1 The Greeks.pdb
+C:\Users\mbaker\OneDrive\CompE361\Assignment 1\Assignment1 The Greeks\obj\Debug\Assignment1 The Greeks.csprojResolveAssemblyReference.cache
+C:\Users\mbaker\OneDrive\CompE361\Assignment 1\Assignment1 The Greeks\obj\Debug\Assignment1 The Greeks.exe
+C:\Users\mbaker\OneDrive\CompE361\Assignment 1\Assignment1 The Greeks\obj\Debug\Assignment1 The Greeks.pdb
