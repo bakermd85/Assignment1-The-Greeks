@@ -152,36 +152,7 @@ namespace Assignment1_The_Greeks
     /// </summary>
     class Program
     {
-        public struct coordinates
-        {
-            public double x;
-            public double y;
-
-            public coordinates(double pointX, double pointY)
-            {
-                x = pointX;
-                y = pointY;
-            }
-        }
-
-        public struct deltas
-        {
-            public double x;
-            public double y;
-
-            public deltas(double deltaX, double deltaY)
-            {
-                x = deltaX;
-                y = deltaY;
-            }
-        }
-
-        static coordinates point1;
-        static coordinates point2;
-        static deltas delta;
-        static double distance;
-        static double angle;
-               
+                
         /// <summary>
         /// This will calculate the distance 
         /// between two points and the angle between those points.
@@ -192,7 +163,6 @@ namespace Assignment1_The_Greeks
             userCoordinates firstCoordinates = new userCoordinates("Point1", 0, 0);
             userCoordinates secondCoordinates = new userCoordinates("Point2", 0, 0);
             
-
             printWelcome();
 
             firstCoordinates.GetCoordinates();
@@ -202,14 +172,7 @@ namespace Assignment1_The_Greeks
 
             printAnswer(firstCoordinates, secondCoordinates, delta);
 
-            retrieveCoordinates();
-            calculateDeltas();
-            calculateDistance();
-            calculateAngle();
-            printValues();
-
             Console.ReadLine();
-
         }
 
         static void printWelcome()
@@ -221,61 +184,6 @@ namespace Assignment1_The_Greeks
             Console.WriteLine("**********************************************************");
 
             return;
-        }
-
-        static void retrieveCoordinates()
-        {
-
-            Console.Write("Please enter the x value for point 1: ");
-            while (!double.TryParse(Console.ReadLine(), out point1.x))
-            {
-                Console.Write("Invalid entry. Try again: ");
-            }
-
-            Console.Write("Please enter the y value for point 1: ");
-            while (!double.TryParse(Console.ReadLine(), out point1.y))
-            {
-                Console.Write("Invalid entry. Try again: ");
-            }
-
-            Console.Write("Please enter the x value for point 2: ");
-            while (!double.TryParse(Console.ReadLine(), out point2.x))
-            {
-                Console.Write("Invalid entry. Try again: ");
-            }
-
-            Console.Write("Please enter the y value for point 2: ");
-            while (!double.TryParse(Console.ReadLine(), out point2.y))
-            {
-                Console.Write("Invalid entry. Try again: ");
-            }
-        }
-
-        static void calculateDeltas()
-        {
-            delta.x = point2.x - point1.x;
-            delta.y = point2.y - point1.y;
-        }
-
-        static void calculateDistance()
-        {
-            distance = Math.Sqrt((delta.x*delta.x) + (delta.y*delta.y));
-        }
-
-        static void calculateAngle()
-        {
-            angle = Math.Atan2(delta.y, delta.x) * (180/Math.PI);
-        }
-
-        static void printValues()
-        {
-            Console.WriteLine("\nYou entered:");
-            Console.WriteLine("Point 1 X: {0:F3}", point1.x);
-            Console.WriteLine("Point 1 Y: {0:F3}", point1.y);
-            Console.WriteLine("Point 2 X: {0:F3}", point2.x);
-            Console.WriteLine("Point 2 Y: {0:F3}\n", point2.y);
-            Console.WriteLine("The distance between points 1 and 2 is: {0:F3} units. ", distance);
-            Console.WriteLine("The angle between points 1 and 2 is: {0:F3} degrees.", angle);
         }
 
         static void printAnswer(userCoordinates first, userCoordinates second, userDelta delta)
