@@ -7,6 +7,61 @@ using System.Threading.Tasks;
 namespace Assignment1_The_Greeks
 {
 
+    public class userCoordinates
+    {
+        public double xPoint;
+        public double yPoint;
+        public string name;
+
+        public userCoordinates()
+        {
+            name = "point";
+            xPoint = 0;
+            yPoint = 0;
+        }
+
+        public userCoordinates(string id, double x, double y)
+        {
+            name = id;
+            xPoint = x;
+            yPoint = y;
+        }
+
+        public void SetCoordinates(double x, double y)
+        {
+            xPoint = x;
+            yPoint = y;
+        }
+
+        public void SetName(string id)
+        {
+            name = id;
+        }
+
+        public void GetCoordinates()
+        {
+            Console.Write("Please enter the x value for {0}: ", name);
+            while (!double.TryParse(Console.ReadLine(), out xPoint))
+            {
+                Console.Write("Invalid entry. Try again: ");
+            }
+
+            Console.Write("Please enter the y value for {0}: ", name);
+            while (!double.TryParse(Console.ReadLine(), out yPoint))
+            {
+                Console.Write("Invalid entry. Try again: ");
+            }
+        }
+
+        public void PrintCoordinates()
+        {
+            Console.WriteLine("For {0}:", name);
+            Console.WriteLine("x = {0:F3}", xPoint);
+            Console.WriteLine("y = {0:F3}\n", yPoint);
+        }
+
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -49,6 +104,15 @@ namespace Assignment1_The_Greeks
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            userCoordinates testCoordinates1 = new userCoordinates();
+            userCoordinates testCoordinates2 = new userCoordinates("testPoint2", 2, 2);
+
+            testCoordinates1.GetCoordinates();
+            testCoordinates1.PrintCoordinates();
+            testCoordinates2.PrintCoordinates();
+
+
+
 
             printWelcome();
             retrieveCoordinates();
@@ -123,7 +187,7 @@ namespace Assignment1_The_Greeks
             Console.WriteLine("Point 1 Y: {0:F3}", point1.y);
             Console.WriteLine("Point 2 X: {0:F3}", point2.x);
             Console.WriteLine("Point 2 Y: {0:F3}\n", point2.y);
-            Console.WriteLine("The distance between points 1 and 2 is: {0:F3} units.", distance);
+            Console.WriteLine("The distance between points 1 and 2 is: {0:F3} units. ", distance);
             Console.WriteLine("The angle between points 1 and 2 is: {0:F3} degrees.", angle);
         }
     }
