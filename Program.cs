@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 namespace Assignment1_The_Greeks
 {
 
-    public class userCoordinates
+    public class Coordinates
     {
         public double xPoint;
         public double yPoint;
         public string name;
 
-        public userCoordinates()
+        public Coordinates()
         {
             name = "point";
             xPoint = 0;
             yPoint = 0;
         }
 
-        public userCoordinates(string id, double x, double y)
+        public Coordinates(string id, double x, double y)
         {
             name = id;
             xPoint = x;
@@ -77,7 +77,7 @@ namespace Assignment1_The_Greeks
 
     }
 
-    public class userDelta
+    public class Delta
     {
         public string name;
         public double firstX;
@@ -89,7 +89,7 @@ namespace Assignment1_The_Greeks
         public double distance;
         public double angle;
 
-        public userDelta()
+        public Delta()
         {
             name = "Delta";
             firstX = 0;
@@ -102,7 +102,7 @@ namespace Assignment1_The_Greeks
             angle = 0;
         }
 
-        public userDelta(string id, double fx, double fy, double sx, double sy)
+        public Delta(string id, double fx, double fy, double sx, double sy)
         {
             name = id;
             firstX = fx;
@@ -115,7 +115,7 @@ namespace Assignment1_The_Greeks
             angle = Math.Atan2(deltaY, deltaX) * (180 / Math.PI);
         }
 
-        public userDelta(string id, userCoordinates first, userCoordinates second)
+        public Delta(string id, Coordinates first, Coordinates second)
         {
             name = id;
             firstX = first.GetX();
@@ -128,19 +128,19 @@ namespace Assignment1_The_Greeks
             angle = Math.Atan2(deltaY, deltaX) * (180 / Math.PI);
         }
 
-        public void printDelta()
+        public void PrintDelta()
         {
             Console.WriteLine("For {0}: ", name);
             Console.WriteLine("DeltaX = {0}", deltaX);
             Console.WriteLine("DeltaY = {0}\n", deltaY);
         }
 
-        public double getDistance()
+        public double GetDistance()
         {
             return distance;
         }
 
-        public double getAngle()
+        public double GetAngle()
         {
             return angle;
         }
@@ -160,15 +160,15 @@ namespace Assignment1_The_Greeks
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            userCoordinates firstCoordinates = new userCoordinates("Point1", 0, 0);
-            userCoordinates secondCoordinates = new userCoordinates("Point2", 0, 0);
+            Coordinates firstCoordinates = new Coordinates("Point1", 0, 0);
+            Coordinates secondCoordinates = new Coordinates("Point2", 0, 0);
             
             printWelcome();
 
             firstCoordinates.GetCoordinates();
             secondCoordinates.GetCoordinates();
 
-            userDelta delta = new userDelta("Delta", firstCoordinates, secondCoordinates);
+            Delta delta = new Delta("Delta", firstCoordinates, secondCoordinates);
 
             printAnswer(firstCoordinates, secondCoordinates, delta);
 
@@ -186,12 +186,12 @@ namespace Assignment1_The_Greeks
             return;
         }
 
-        static void printAnswer(userCoordinates first, userCoordinates second, userDelta delta)
+        static void printAnswer(Coordinates first, Coordinates second, Delta delta)
         {
             first.PrintCoordinates();
             second.PrintCoordinates();
-            Console.WriteLine("The distance between {0} and {1} is {2}.", first.GetName(), second.GetName(), delta.getDistance());
-            Console.WriteLine("The angle between {0} and {1} is {2}.\n", first.GetName(), second.GetName(), delta.getAngle());
+            Console.WriteLine("The distance between {0} and {1} is {2:F3} units.", first.GetName(), second.GetName(), delta.GetDistance());
+            Console.WriteLine("The angle between {0} and {1} is {2:F3} degrees.\n", first.GetName(), second.GetName(), delta.GetAngle());
         }
     }
 }
